@@ -17,12 +17,11 @@ var serverHttp = http.createServer(function(req,res){
 });
 
 // start the server port 3000
-/*
 serverHttp.listen(config.httpPort,function(){
   console.log('the server is listening op port '+config.httpPort+' now, in envoriment '+config.envName+ ' mode');
 });
-*/
 
+/*
 // instantiate https server
 var httpsServerOptions = {
     'key' : fs.readFileSync('./https/key.pem'),
@@ -36,6 +35,7 @@ var serverHttps = https.createServer(httpsServerOptions,function(req,res){
 serverHttps.listen(config.httpsPort,function(){
   console.log('the server is listening op port '+config.httpsPort+' now, in envoriment '+config.envName+ ' mode');
 });
+*/
 
 
 
@@ -89,7 +89,7 @@ var unifiedServer = function(req,res){
       // use default status code or handler status statusCode
       statusCode = typeof(statusCode) == 'number' ? statusCode : 200;
 
-      payload = typeof(paylaod) == 'object' ? paylaod : {};
+      payload = typeof(payload) == 'object' ? payload : {};
 
       // convert oject to string
       var payloadString = JSON.stringify(payload);
@@ -107,8 +107,8 @@ var unifiedServer = function(req,res){
 // define handlers
 var handlers = {};
 
-handlers.greeting = function(data,callback){
-    callback(200,{'message':'Hallo there!'});
+handlers.hello = function(data,callback){
+    callback(200,{'message':'Hello back!'});
 };
 
 handlers.ping = function(data,callback){
@@ -122,5 +122,5 @@ handlers.notFound = function(data,callback){
 // define request router
 var router = {
   'ping' : handlers.ping,
-  'greeting' : handlers.greeting,
+  'hello' : handlers.hello,
 };
