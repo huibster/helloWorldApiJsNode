@@ -1,0 +1,6 @@
+{
+  "name": "helloWorldApiJsNode",
+  "version": "1.0.0",
+  "description": "the-nodejs-master-class homework-assignment-1",
+  "main" : "index.js"
+}
